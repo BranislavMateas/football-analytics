@@ -121,7 +121,7 @@ ax2.set_axisbelow(True)
 ax2.yaxis.grid(color = "gray", linestyle = "dashed")
 
 # Adding logo
-plt.figimage(Image.open("logo.png").resize((70, 70), Image.LANCZOS), xo=10, yo=0)
+plt.figimage(Image.open("logo.png").resize((70, 70), Image.LANCZOS), xo = 10, yo = 0)
 
 # Adding data source text
 plt.text(0.865, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 9)
