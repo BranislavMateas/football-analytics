@@ -53,7 +53,7 @@ fig, ax = plt.subplots()
 ax2 = ax.twinx()
 
 # Setting up graph global defaults
-fig.set_size_inches(19, 9.5)
+fig.set_size_inches(16, 9.5)
 
 fig.set_facecolor(BACKGROUND_COLOR)
 fig.set_edgecolor(PRIMARY_COLOR)
@@ -79,8 +79,8 @@ ax.tick_params(axis = "y", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
 ax2.tick_params(axis = "y", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
 
 # Setting up graph (sub)title
-plt.suptitle("PLAYERS' PLAYING TIME IN FC BARCELONA", fontsize = 20, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
-plt.text(0.5, 1.065, "2022/2023 Season | All competitions", fontsize = 15, transform = plt.gca().transAxes, fontweight = "regular", family = FONT_FAMILY, color = PRIMARY_COLOR, ha = "center", va = "center")
+plt.suptitle("PLAYERS' PLAYING TIME IN FC BARCELONA", y = 0.969, fontsize = 20, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
+plt.text(0.5, 1.055, "2022/2023 Season | All competitions", fontsize = 15, transform = plt.gca().transAxes, fontweight = "regular", family = FONT_FAMILY, color = PRIMARY_COLOR, ha = "center", va = "center")
 
 # Setting up axes values and their respective labels
 plt.xticks(range(minimum_age, maximum_age + 1), color = PRIMARY_COLOR)
@@ -104,7 +104,7 @@ ax2.set_ylim(ax.get_ylim())
 
 # Setting up background spans
 ax.axvspan(minimum_age, 23, facecolor = "green", alpha = 0.35, label = "YOUTH")
-plt.text(19.1395, MAXIMUM_MINUTES / 2, "YOUTH", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
+plt.text(19.15, MAXIMUM_MINUTES / 2, "YOUTH", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
 
 ax.axvspan(24, 29, facecolor = "red", alpha = 0.35, label = "PEAK")
 plt.text((24 + 29) / 2, MAXIMUM_MINUTES / 2, "PEAK", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
@@ -123,7 +123,7 @@ ax2.yaxis.grid(color = "gray", linestyle = "dashed")
 plt.figimage(Image.open("logo.png").resize((100, 100), Image.LANCZOS), xo = 17, yo = -1)
 
 # Adding data source text
-plt.text(0.9075, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 12)
+plt.text(0.84, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "left", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 12)
 plt.text(1.0, -0.095, "Transfermarkt", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 12)
 
 # Scatter the data
