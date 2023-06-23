@@ -89,7 +89,7 @@ plt.plot([club_goals_for.min(), club_goals_for.max()], [club_goals_against.mean(
 
 # Label the data
 for i in range(len(club_names)):
-    ab = AnnotationBbox(getImage("laliga_teams_22_23_gf_ga_vizz/crests/" + club_names[i] + ".png"), (club_goals_for[i], club_goals_against[i]), frameon = False)
+    ab = AnnotationBbox(getImage("laliga_teams_22_23_gf_ga_viz/crests/" + club_names[i] + ".png"), (club_goals_for[i], club_goals_against[i]), frameon = False)
     ax.add_artist(ab)
 
 # Display the vizz
