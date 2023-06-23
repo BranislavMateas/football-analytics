@@ -53,15 +53,14 @@ fig, ax = plt.subplots()
 ax2 = ax.twinx()
 
 # Setting up graph global defaults
-fig.set_figwidth(10)
-fig.set_figheight(7)
+fig.set_size_inches(19, 9.5)
 
 fig.set_facecolor(BACKGROUND_COLOR)
 fig.set_edgecolor(PRIMARY_COLOR)
 ax.set_facecolor(BACKGROUND_COLOR)
 
-plt.rc("xtick", labelsize = 9)
-plt.rc("ytick", labelsize = 9)
+plt.rc("xtick", labelsize = 12)
+plt.rc("ytick", labelsize = 12)
 
 # Setting up spine colors
 ax.spines["top"].set_visible(False)
@@ -75,13 +74,13 @@ ax2.spines["bottom"].set_color(PRIMARY_COLOR)
 ax2.spines["left"].set_color(PRIMARY_COLOR)
 
 # Setting up ticks color
-ax.tick_params(axis = "x", colors = PRIMARY_COLOR)
-ax.tick_params(axis = "y", colors = PRIMARY_COLOR)
-ax2.tick_params(axis = "y", colors = PRIMARY_COLOR)
+ax.tick_params(axis = "x", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
+ax.tick_params(axis = "y", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
+ax2.tick_params(axis = "y", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
 
 # Setting up graph (sub)title
-plt.suptitle("PLAYERS' PLAYING TIME IN FC BARCELONA", fontsize = 15, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
-plt.text(0.5, 1.065, "2022/2023 Season | All competitions", fontsize = 12, transform = plt.gca().transAxes, fontweight = "regular", family = FONT_FAMILY, color = PRIMARY_COLOR, ha = "center", va = "center")
+plt.suptitle("PLAYERS' PLAYING TIME IN FC BARCELONA", fontsize = 20, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
+plt.text(0.5, 1.065, "2022/2023 Season | All competitions", fontsize = 15, transform = plt.gca().transAxes, fontweight = "regular", family = FONT_FAMILY, color = PRIMARY_COLOR, ha = "center", va = "center")
 
 # Setting up axes values and their respective labels
 plt.xticks(range(minimum_age, maximum_age + 1), color = PRIMARY_COLOR)
@@ -91,9 +90,9 @@ ax2.set_yticks([0, MAXIMUM_MINUTES * 0.25, MAXIMUM_MINUTES * 0.5, MAXIMUM_MINUTE
 ax2.set_yticklabels(["0%", "25%", "50%", "75%", "100%"], color = PRIMARY_COLOR)
 
 # Setting up axes labels
-ax.set_xlabel("Age", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold")
-ax.set_ylabel("Minutes played", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold")
-ax2.set_ylabel("% of minutes played", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold")
+ax.set_xlabel("Age", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold", fontsize = 15, labelpad = 14)
+ax.set_ylabel("Minutes played", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold", fontsize = 15, labelpad = 14)
+ax2.set_ylabel("% of minutes played", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold", fontsize = 15, rotation = 270, labelpad = 14)
 
 # Setting up margins
 ax.set_xmargin(0.04)
@@ -105,13 +104,13 @@ ax2.set_ylim(ax.get_ylim())
 
 # Setting up background spans
 ax.axvspan(minimum_age, 23, facecolor = "green", alpha = 0.35, label = "YOUTH")
-plt.text(19.175, MAXIMUM_MINUTES / 2, "YOUTH", fontsize = 40, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
+plt.text(19.1395, MAXIMUM_MINUTES / 2, "YOUTH", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
 
 ax.axvspan(24, 29, facecolor = "red", alpha = 0.35, label = "PEAK")
-plt.text((24 + 29) / 2, MAXIMUM_MINUTES / 2, "PEAK", fontsize = 40, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
+plt.text((24 + 29) / 2, MAXIMUM_MINUTES / 2, "PEAK", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
 
 ax.axvspan(30, maximum_age, facecolor = "yellow", alpha = 0.35, label = "EXPERIENCE")
-plt.text((30 + maximum_age) / 2, MAXIMUM_MINUTES / 2, "EXPERIENCE", fontsize = 40, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
+plt.text((30 + maximum_age) / 2, MAXIMUM_MINUTES / 2, "EXPERIENCE", fontsize = 50, rotation = 90, color = PRIMARY_COLOR, alpha = 0.35, ha = "center", va = "center", fontweight = "bold")
 
 # Setting up scatter grids
 ax.set_axisbelow(True)
@@ -121,18 +120,18 @@ ax2.set_axisbelow(True)
 ax2.yaxis.grid(color = "gray", linestyle = "dashed")
 
 # Adding logo
-plt.figimage(Image.open("logo.png").resize((70, 70), Image.LANCZOS), xo = 10, yo = 0)
+plt.figimage(Image.open("logo.png").resize((100, 100), Image.LANCZOS), xo = 17, yo = -1)
 
 # Adding data source text
-plt.text(0.865, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 9)
-plt.text(1.0, -0.095, "Transfermarkt", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 9)
+plt.text(0.9075, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 12)
+plt.text(1.0, -0.095, "Transfermarkt", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 12)
 
 # Scatter the data
-plt.scatter(player_ages, player_minutes, color = PRIMARY_COLOR, s = 50)
+plt.scatter(player_ages, player_minutes, color = PRIMARY_COLOR, s = 75)
 
 # Label the data
 text_list = player_names[np.arange(len(player_names))]
-ta.allocate_text(fig, ax, player_ages, player_minutes, text_list, x_scatter = player_ages, y_scatter = player_minutes, family = FONT_FAMILY, textcolor = PRIMARY_COLOR, textsize = 9, linecolor = PRIMARY_COLOR, fontweight = 600)
+ta.allocate_text(fig, ax, player_ages, player_minutes, text_list, x_scatter = player_ages, y_scatter = player_minutes, family = FONT_FAMILY, textcolor = PRIMARY_COLOR, textsize = 13, linecolor = PRIMARY_COLOR, fontweight = 500)
 
 # Show the graph
 plt.show()

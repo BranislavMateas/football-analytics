@@ -14,7 +14,7 @@ FONT_FAMILY = "sans-serif"
 
 # HELPING FUNCTIONS
 def getImage(path):
-    return OffsetImage(plt.imread(path), alpha = 1, zoom = 0.15)
+    return OffsetImage(plt.imread(path), alpha = 1, zoom = 0.225)
 
 # DATA FETCHING
 # Setting up HTTP header
@@ -40,11 +40,7 @@ club_goals_against = np.array([int(item.text) for item in clubs_table.find_all("
 
 # GRAPH
 # Creating the plot area
-fig, ax = plt.subplots()
-
-# Setting up graph global defaults
-fig.set_figwidth(10)
-fig.set_figheight(6)
+fig, ax = plt.subplots(dpi=120)
 
 fig.set_facecolor(BACKGROUND_COLOR)
 fig.set_edgecolor(PRIMARY_COLOR)
@@ -83,7 +79,7 @@ ax.text(club_goals_for.max() + 1.75, club_goals_against.max() + 5, "Strong attac
 plt.figimage(Image.open("logo.png").resize((70, 70), Image.LANCZOS), xo = 10, yo = 0)
 
 # Adding data source text
-plt.text(0.945, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 9)
+plt.text(0.965, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 9)
 plt.text(1.0, -0.095, "FBref", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 9)
 
 # Plot the data
