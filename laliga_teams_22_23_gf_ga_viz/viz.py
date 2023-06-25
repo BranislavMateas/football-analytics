@@ -14,7 +14,7 @@ FONT_FAMILY = "sans-serif"
 
 # HELPING FUNCTIONS
 def getImage(path):
-    return OffsetImage(plt.imread(path), alpha = 1, zoom = .25)
+    return OffsetImage(plt.imread(path), alpha = 1, zoom = 0.25)
 
 # DATA FETCHING
 # Setting up HTTP header
@@ -63,7 +63,7 @@ ax.tick_params(axis = "x", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
 ax.tick_params(axis = "y", colors = PRIMARY_COLOR, size = 8, labelsize = 13)
 
 # Setting up title
-plt.suptitle("CLUBS' GF AND GA DURING THE 2022/23 LA LIGA SEASON", y = .969, fontsize = 20, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
+plt.suptitle("CLUBS' GF AND GA DURING THE 2022/23 LA LIGA SEASON", y = 0.969, fontsize = 20, fontweight = "bold", family = FONT_FAMILY, color = PRIMARY_COLOR)
 
 # Setting up axes labels
 ax.set_xlabel("Goals for (Attack)", color = PRIMARY_COLOR, family = FONT_FAMILY, fontweight = "bold", fontsize = 15, labelpad = 14)
@@ -82,8 +82,8 @@ ax.text(club_goals_for.max() + 1.75, club_goals_against.max() + 5, "Strong attac
 plt.figimage(Image.open("logo.png").resize((100, 100), Image.LANCZOS), xo = 17, yo = -1)
 
 # Adding data source text
-plt.text(.955, -.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 12)
-plt.text(1.0, -.095, "FBref", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 12)
+plt.text(0.955, -0.095, "Source:", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "regular", fontsize = 12)
+plt.text(1.0, -0.095, "FBref", transform = plt.gca().transAxes, family = FONT_FAMILY, ha = "right", va = "center", color = PRIMARY_COLOR, fontweight = "bold", fontsize = 12)
 
 # Plot the data
 plt.plot(club_goals_for, club_goals_against, "o")
@@ -93,8 +93,8 @@ plt.plot([club_goals_for.mean(), club_goals_for.mean()], [club_goals_against.max
 plt.plot([club_goals_for.min(), club_goals_for.max()], [club_goals_against.mean(), club_goals_against.mean()], linestyle = ":", lw = 1, color = PRIMARY_COLOR)
 
 # Avg line explanation
-fig.text(.3915, .14, "Average GF", size = 10, transform = plt.gca().transAxes, color = PRIMARY_COLOR, rotation = 90, alpha = .75)
-fig.text(.85, .56, "Average GA", size = 10, transform = plt.gca().transAxes, color = PRIMARY_COLOR, alpha = .75)
+fig.text(0.3915, 0.14, "Average GF", size = 10, transform = plt.gca().transAxes, color = PRIMARY_COLOR, rotation = 90, alpha = 0.75)
+fig.text(0.85, 0.56, "Average GA", size = 10, transform = plt.gca().transAxes, color = PRIMARY_COLOR, alpha = 0.75)
 
 # Label the data
 for i in range(len(club_names)):
