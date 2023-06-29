@@ -20,7 +20,16 @@ FONT_FAMILY = "sans-serif"
 
 # FUNCTIONS
 def get_years(birthdate):
-    return datetime.now().year - datetime.strptime(birthdate, "%B %d, %Y").year
+    current_date = datetime.now()
+    birthdate_stripped = datetime.strptime(birthdate, "%B %d, %Y")
+
+    age = current_date.year - birthdate_stripped.year
+
+    # Check if the birthdate hasn't occurred yet this year
+    if current_date.month < birthdate_stripped.month or (current_date.month == birthdate_stripped.month and current_date.day < birthdate_stripped.day):
+        age -= 1
+
+    return age
 
 def set_cell_design(table, frame):
     cells = table.get_celld().values()
